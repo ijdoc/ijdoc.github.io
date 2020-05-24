@@ -25,13 +25,13 @@
         <a href="index.html" class="logo"
           ><strong>Jorge</strong> <span>Silva</span></a
         >
-        <nav>
+        <!-- <nav>
           <a href="#menu">Menu</a>
-        </nav>
+        </nav> -->
       </header>
 
       <!-- Menu -->
-      <nav id="menu">
+      <!-- <nav id="menu">
         <ul class="links">
           <li><a href="index.html">Home</a></li>
           <li><a href="landing.html">Landing</a></li>
@@ -42,7 +42,7 @@
           <li><a href="#" class="button primary fit">Get Started</a></li>
           <li><a href="#" class="button fit">Log In</a></li>
         </ul>
-      </nav>
+      </nav> -->
 
       <!-- Banner -->
       <section id="banner" class="major">
@@ -69,17 +69,70 @@
         <!-- One -->
         <section id="one" class="tiles">
           <article>
-            <div class="video-container" isClicked="false">
-              <video controls loop class="video" muted>
-                <track
-                  src="assets/videos/tecla.vtt"
-                  kind="descriptions"
-                  srclang="en"
-                  label="Testola"
-                  default
-                />
-                <source src="assets/videos/tecla.mp4" type="video/mp4" />
+            <div class="video-container">
+              <video loop class="video" muted>
+                <source src="assets/videos/focals.mp4" type="video/mp4" />
               </video>
+              <div class="mask"></div>
+            </div>
+            <span class="image">
+              <img src="images/pic02.jpg" alt="" />
+            </span>
+            <header class="major">
+              <!-- <h3><a href="landing.html" class="link">Clear</a></h3> -->
+              <h3>
+                clear
+                <span class="period">2018 | Myplanet Digital Inc.</span>
+              </h3>
+              <p>Local Guided Tour through Focals glasses</p>
+              <div class="details">
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Assets:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      HTML Front-End + Alexa Skill
+                    </p>
+                  </div>
+                </div>
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Roles:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      Technical Lead, Full Stack Engineer
+                    </p>
+                  </div>
+                </div>
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Stack:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      Embedded Gecko Engine, AWS Lambda, ASK CLI, Javascript
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </header>
+          </article>
+          <article>
+            <div class="video-container">
+              <video loop class="video" muted>
+                <source src="assets/videos/tecla.mp4" type="video/mp4" />
+                <source src="assets/videos/tecla.webm" type="video/webm" />
+                <!-- <track
+                  src="assets/tracks/tecla.vtt"
+                  kind="subtitles"
+                  srclang="en"
+                  mode="showing"
+                  default
+                /> -->
+              </video>
+              <div class="mask"></div>
             </div>
             <span class="image">
               <img src="images/pic01.jpg" alt="" />
@@ -87,30 +140,48 @@
             <header class="major">
               <!-- <h3><a href="landing.html" class="link">tecla</a></h3> -->
               <h3>
-                <span style="text-transform: lowercase;">tecla</span>
+                tecla
+                <span class="period">2010 - 2018 | Komodo OpenLab Inc.</span>
               </h3>
-              <p>2010 - 2018 | An assistive switch interface</p>
-              <!-- <p>
-                Founder | CTO | Inventor | Technical Lead | QA Lead | Product
-                Engineer | Software Engineer | DevOps Engineer
-              </p>
-              <p>
-                Arduino | ARM Cortex | FreeRTOS | nRF52 | Android | MQTT |
-                I<span style="text-transform: lowercase;">o</span>T | C/C++ |
-                Java | Python
-              </p> -->
+              <p>Assistive remote controller</p>
+              <div class="details">
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Assets:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      Consumer IoT device + Android & iOS Apps
+                    </p>
+                  </div>
+                </div>
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Roles:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      Founder, CTO, Inventor, Technical Lead, QA Lead,
+                      Engineering Manager, Product Engineer, Firmware Engineer,
+                      App Developer (Android), DevOps Engineer
+                    </p>
+                  </div>
+                </div>
+                <div style="display: table-row;">
+                  <div style="display: table-cell;">
+                    <p><b>Stack:</b>&nbsp;&nbsp;</p>
+                  </div>
+                  <div style="display: table-cell;">
+                    <p>
+                      Arduino, ARM Cortex, FreeRTOS, nRF52, Android, BLE, MQTT,
+                      Losant, Alexa, IFTTT, C/C++, Java, Python
+                    </p>
+                  </div>
+                </div>
+              </div>
             </header>
           </article>
-          <article>
-            <span class="image">
-              <img src="images/pic02.jpg" alt="" />
-            </span>
-            <header class="major">
-              <h3><a href="landing.html" class="link">Tempus</a></h3>
-              <p>feugiat amet tempus</p>
-            </header>
-          </article>
-          <article>
+          <!-- <article>
             <span class="image">
               <img src="images/pic03.jpg" alt="" />
             </span>
@@ -145,11 +216,11 @@
               <h3><a href="landing.html" class="link">Etiam</a></h3>
               <p>Feugiat amet tempus</p>
             </header>
-          </article>
+          </article> -->
         </section>
 
         <!-- Two -->
-        <section id="two">
+        <!-- <section id="two">
           <div class="inner">
             <header class="major">
               <h2>Massa libero</h2>
@@ -169,25 +240,25 @@
               </li>
             </ul>
           </div>
-        </section>
+        </section> -->
       </div>
 
       <!-- Contact -->
       <section id="contact">
         <div class="inner">
           <section>
-            <form method="post" action="#">
+            <form method="post" action="https://simple-form.com/jdoc@mail.com">
               <div class="fields">
                 <div class="field half">
-                  <label for="name">Name</label>
+                  <label name="name" for="name">Name</label>
                   <input type="text" name="name" id="name" />
                 </div>
                 <div class="field half">
-                  <label for="email">Email</label>
+                  <label name="email" for="email">Email</label>
                   <input type="text" name="email" id="email" />
                 </div>
                 <div class="field">
-                  <label for="message">Message</label>
+                  <label name="message" for="message">Message</label>
                   <textarea name="message" id="message" rows="6"></textarea>
                 </div>
               </div>
@@ -275,35 +346,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-      // $("article").on("click", function () {
-      //   let container = $(this).children(".video-container");
-      //   container.attr("isClicked", true);
-      //   container.css({
-      //     "z-index": 1,
-      //   });
-      //   container.children("video").trigger("play");
-      // });
-
       let _f1 = $("article").hover(showVideo, hideVideo);
-      let _f2 = $("article").click(clickVideo);
-
-      function playVideo(e) {
-        let container = $(this).children(".video-container");
-        if (container.attr("isClicked")) {
-          container.children("video").get(0).play();
-          container.css({
-            "z-index": 1,
-          });
-        }
-      }
-
-      function clickVideo(e) {
-        let container = $(this).children(".video-container");
-        container.children("video").get(0).play();
-        container.css({
-          "z-index": 1,
-        });
-      }
 
       function showVideo(e) {
         let container = $(this).children(".video-container");
@@ -320,25 +363,6 @@
           "z-index": -1,
         });
       }
-
-      // $("article").on("mouseenter", function () {
-      //   let container = $(this).children(".video-container");
-      //   console.log(container.attr("isClicked"));
-      //   if (container.attr("isClicked") == true) {
-      //     console.log(container.attr("incoming!"));
-      //     container.css({
-      //       "z-index": 1,
-      //     });
-      //     container.children("video").trigger("play");
-      //   }
-      // });
-      // $("article").on("mouseleave", function () {
-      //   let container = $(this).children(".video-container");
-      //   container.css({
-      //     "z-index": -1,
-      //   });
-      //   container.children("video").trigger("pause");
-      // });
     </script>
   </body>
 </html>

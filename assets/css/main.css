@@ -1894,7 +1894,8 @@ header.major > p {
   font-size: 0.7em;
   font-weight: 600;
   letter-spacing: 0.25em;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
+  margin-top: 1em;
   text-transform: uppercase;
 }
 
@@ -2872,6 +2873,20 @@ button:disabled,
   font-size: 1.75em;
 }
 
+.tiles article .period {
+  font-size: 0.4em;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  margin-bottom: 0;
+  margin-left: 1em;
+  text-transform: uppercase;
+}
+
+.tiles article .details {
+  font-size: 0.8em;
+  font-weight: bolder;
+}
+
 .tiles article h3 a:hover {
   color: inherit !important;
 }
@@ -2888,7 +2903,29 @@ button:disabled,
 
 .tiles article .video-container video {
   width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* height: 100%; */
+}
+
+.tiles article .video-container .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background-color: #212121;
+  opacity: 0.75;
+}
+
+.tiles article .video-container video::cue {
+  /* color: black;
+  background-color: rgba(235, 196, 112, 0.9); */
+  /* text-transform: uppercase; */
+  font-weight: bold;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 .tiles article .link.primary {
@@ -2951,27 +2988,27 @@ button:disabled,
 }
 
 .tiles article:nth-child(6n - 5):before {
-  background-color: #6fc3df;
+  background-color: #126885;
 }
 
 .tiles article:nth-child(6n - 4):before {
-  background-color: #8d82c4;
+  background-color: #4b3f88;
 }
 
 .tiles article:nth-child(6n - 3):before {
-  background-color: #ec8d81;
+  background-color: #9b6860;
 }
 
 .tiles article:nth-child(6n - 2):before {
-  background-color: #e7b788;
+  background-color: #458061;
 }
 
 .tiles article:nth-child(6n - 1):before {
-  background-color: #8ea9e8;
+  background-color: #52689d;
 }
 
 .tiles article:nth-child(6n):before {
-  background-color: #87c5a4;
+  background-color: #9a4d00;
 }
 
 @media screen and (max-width: 1280px) {
