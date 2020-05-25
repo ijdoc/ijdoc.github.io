@@ -166,6 +166,7 @@
   });
 
   let _f1 = $("article").hover(showVideo, hideVideo);
+  let _g1;
 
   function showVideo(e) {
     let container = $(this).children(".video-container");
@@ -179,6 +180,7 @@
       transform: "translateY(75%)",
       transition: "transform 0.5s",
     });
+    _g1 = details.css("display");
     details.css({
       display: "none",
       transition: "display 0.5s",
@@ -198,7 +200,7 @@
       transition: "transform 0.5s",
     });
     details.css({
-      display: "block",
+      display: _g1,
     });
   }
 
