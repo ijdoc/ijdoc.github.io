@@ -3757,11 +3757,20 @@ body.is-preload #banner > .inner {
 #contact {
   border-bottom: solid 1px rgba(212, 212, 255, 0.1);
   overflow-x: hidden;
-  padding: 5em;
+  padding: 2em 5em;
+}
+
+#contact .row {
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* text-align: center; */
 }
 
 #contact .row div {
-  margin: 0 2em;
+  /* width: 32.8%; */
+  margin: 1em 0;
 }
 
 #contact > .inner {
