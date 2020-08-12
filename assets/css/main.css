@@ -2938,7 +2938,7 @@ button:disabled,
   display: block;
   height: 100%;
   left: 0;
-  opacity: 0.85;
+  opacity: 0.9;
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -2957,7 +2957,8 @@ button:disabled,
 }
 
 .tiles article:hover:before {
-  opacity: 0;
+  /* background-color: #212121 !important; */
+  opacity: 0.6;
 }
 
 .tiles article.is-transitioning {
@@ -3514,7 +3515,7 @@ body.is-preload #header.alt {
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  background-image: url("../../images/banner.jpg");
+  background-image: url("../../assets/images/banner.jpg");
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -3534,6 +3535,19 @@ body.is-preload #header.alt {
   top: -3.25em;
 }
 
+#banner .credit {
+  position: absolute;
+  font-size: 0.6em;
+  bottom: 6px;
+  right: 18px;
+}
+
+#banner .credit a {
+  /* color: #212121; */
+  text-decoration: none;
+  border: none;
+}
+
 #banner:after {
   -moz-transition: opacity 2.5s ease;
   -webkit-transition: opacity 2.5s ease;
@@ -3549,7 +3563,7 @@ body.is-preload #header.alt {
   display: block;
   height: 100%;
   left: 0;
-  opacity: 0.85;
+  opacity: 0.8;
   position: absolute;
   top: 0;
   width: 100%;
@@ -3612,9 +3626,9 @@ body.is-preload #header.alt {
 }
 
 #banner > .inner .content p {
-  font-size: 0.7em;
+  font-size: 1.25em;
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   max-width: 55em;
 }

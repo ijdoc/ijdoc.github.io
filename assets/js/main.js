@@ -28,63 +28,63 @@
   $.fn._parallax =
     browser.name == "ie" || browser.name == "edge" || browser.mobile
       ? function () {
-          return $(this);
-        }
+        return $(this);
+      }
       : function (intensity) {
-          var $window = $(window),
-            $this = $(this);
+        var $window = $(window),
+          $this = $(this);
 
-          if (this.length == 0 || intensity === 0) return $this;
+        if (this.length == 0 || intensity === 0) return $this;
 
-          if (this.length > 1) {
-            for (var i = 0; i < this.length; i++)
-              $(this[i])._parallax(intensity);
+        if (this.length > 1) {
+          for (var i = 0; i < this.length; i++)
+            $(this[i])._parallax(intensity);
 
-            return $this;
-          }
+          return $this;
+        }
 
-          if (!intensity) intensity = 0.25;
+        if (!intensity) intensity = 0.25;
 
-          $this.each(function () {
-            var $t = $(this),
-              on,
-              off;
+        $this.each(function () {
+          var $t = $(this),
+            on,
+            off;
 
-            on = function () {
+          on = function () {
+            $t.css(
+              "background-position",
+              "center 100%, center 100%, center 0px"
+            );
+
+            $window.on("scroll._parallax", function () {
+              var pos =
+                parseInt($window.scrollTop()) - parseInt($t.position().top);
+
               $t.css(
                 "background-position",
-                "center 100%, center 100%, center 0px"
+                "center " + pos * (-1 * intensity) + "px"
               );
+            });
+          };
 
-              $window.on("scroll._parallax", function () {
-                var pos =
-                  parseInt($window.scrollTop()) - parseInt($t.position().top);
+          off = function () {
+            $t.css("background-position", "");
 
-                $t.css(
-                  "background-position",
-                  "center " + pos * (-1 * intensity) + "px"
-                );
-              });
-            };
+            $window.off("scroll._parallax");
+          };
 
-            off = function () {
-              $t.css("background-position", "");
+          breakpoints.on("<=medium", off);
+          breakpoints.on(">medium", on);
+        });
 
-              $window.off("scroll._parallax");
-            };
-
-            breakpoints.on("<=medium", off);
-            breakpoints.on(">medium", on);
+        $window
+          .off("load._parallax resize._parallax")
+          .on("load._parallax resize._parallax", function () {
+            $window.trigger("scroll");
           });
 
-          $window
-            .off("load._parallax resize._parallax")
-            .on("load._parallax resize._parallax", function () {
-              $window.trigger("scroll");
-            });
-
-          return $(this);
-        };
+        return $(this);
+      };
 
   // Play initial animations on page load.
   $window.on("load", function () {
@@ -172,13 +172,16 @@
     let container = $(this).children(".video-container");
     let header = $(this).children(".major");
     let details = $(this).children(".major").children(".details");
-    container.children("video").get(0).play();
-    container.css({
-      "z-index": 1,
-    });
+    let video = container.children("video").get(0);
+    if (video != undefined) {
+      video.play();
+      container.css({
+        "z-index": 1,
+      });
+    }
     header.css({
       transform: "translateY(75%)",
-      transition: "transform 0.5s",
+      transition: "transform 0.75s",
     });
     _g1 = details.css("display");
     details.css({
@@ -191,10 +194,13 @@
     let container = $(this).children(".video-container");
     let header = $(this).children(".major");
     let details = $(this).children(".major").children(".details");
-    container.children("video").get(0).pause();
-    container.css({
-      "z-index": -1,
-    });
+    let video = container.children("video").get(0);
+    if (video != undefined) {
+      container.children("video").get(0).pause();
+      container.css({
+        "z-index": -1,
+      });
+    }
     header.css({
       transform: "translateY(0%)",
       transition: "transform 0.5s",
