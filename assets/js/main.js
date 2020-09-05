@@ -28,76 +28,76 @@
   $.fn._parallax =
     browser.name == "ie" || browser.name == "edge" || browser.mobile
       ? function () {
-        return $(this);
-      }
-      : function (intensity) {
-        var $window = $(window),
-          $this = $(this);
-
-        if (this.length == 0 || intensity === 0) return $this;
-
-        if (this.length > 1) {
-          for (var i = 0; i < this.length; i++)
-            $(this[i])._parallax(intensity);
-
-          return $this;
+          return $(this);
         }
+      : function (intensity) {
+          var $window = $(window),
+            $this = $(this);
 
-        if (!intensity) intensity = 0.25;
+          if (this.length == 0 || intensity === 0) return $this;
 
-        $this.each(function () {
-          var $t = $(this),
-            on,
-            off;
+          if (this.length > 1) {
+            for (var i = 0; i < this.length; i++)
+              $(this[i])._parallax(intensity);
 
-          on = function () {
-            $t.css(
-              "background-position",
-              "center 100%, center 100%, center 0px"
-            );
+            return $this;
+          }
 
-            $window.on("scroll._parallax", function () {
-              var pos =
-                parseInt($window.scrollTop()) - parseInt($t.position().top);
+          if (!intensity) intensity = 0.25;
 
+          $this.each(function () {
+            var $t = $(this),
+              on,
+              off;
+
+            on = function () {
               $t.css(
                 "background-position",
-                "center " + pos * (-1 * intensity) + "px"
+                "center 100%, center 100%, center 0px"
               );
-            });
-          };
 
-          off = function () {
-            $t.css("background-position", "");
+              $window.on("scroll._parallax", function () {
+                var pos =
+                  parseInt($window.scrollTop()) - parseInt($t.position().top);
 
-            $window.off("scroll._parallax");
-          };
+                $t.css(
+                  "background-position",
+                  "center " + pos * (-1 * intensity) + "px"
+                );
+              });
+            };
 
-          breakpoints.on("<=medium", off);
-          breakpoints.on(">medium", on);
-        });
+            off = function () {
+              $t.css("background-position", "");
 
-        $window
-          .off("load._parallax resize._parallax")
-          .on("load._parallax resize._parallax", function () {
-            $window.trigger("scroll");
+              $window.off("scroll._parallax");
+            };
+
+            breakpoints.on("<=medium", off);
+            breakpoints.on(">medium", on);
           });
 
-        return $(this);
-      };
+          $window
+            .off("load._parallax resize._parallax")
+            .on("load._parallax resize._parallax", function () {
+              $window.trigger("scroll");
+            });
+
+          return $(this);
+        };
 
   // Play initial animations on page load.
   $window.on("load", function () {
     window.setTimeout(function () {
       $body.removeClass("is-preload");
-    }, 100);
+    }, 10);
   });
 
   // Clear transitioning state on unload/hide.
   $window.on("unload pagehide", function () {
     window.setTimeout(function () {
       $(".is-transitioning").removeClass("is-transitioning");
-    }, 250);
+    }, 100);
   });
 
   // Fix: Enable IE-only tweaks.
