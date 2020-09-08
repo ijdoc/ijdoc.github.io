@@ -165,7 +165,7 @@
     }
   });
 
-  // let _f1 = $("article").hover(showVideo, hideVideo);
+  let _f1 = $("article").hover(showVideo, hideVideo);
   let _g1;
 
   $("video").click(function () {
@@ -174,47 +174,47 @@
     return false;
   });
 
-  // function showVideo(e) {
-  //   let container = $(this).children(".video-container");
-  //   let header = $(this).children(".major");
-  //   let details = $(this).children(".major").children(".details");
-  //   let video = container.children("video").get(0);
-  //   if (video != undefined) {
-  //     video.play();
-  //     container.css({
-  //       "z-index": 1,
-  //     });
-  //   }
-  //   header.css({
-  //     transform: "translateY(75%)",
-  //     transition: "transform 0.75s",
-  //   });
-  //   _g1 = details.css("display");
-  //   details.css({
-  //     display: "none",
-  //     transition: "display 0.5s",
-  //   });
-  // }
+  function showVideo(e) {
+    let container = $(this).children(".video-container");
+    let header = $(this).children(".major");
+    let details = $(this).children(".major").children(".details");
+    let video = container.children("video").get(0);
+    if (video != undefined) {
+      video.play();
+      container.css({
+        "z-index": 1,
+      });
+    }
+    header.css({
+      transform: "translateY(75%)",
+      transition: "transform 0.75s",
+    });
+    _g1 = details.css("display");
+    details.css({
+      display: "none",
+      transition: "display 0.5s",
+    });
+  }
 
-  // function hideVideo(e) {
-  //   let container = $(this).children(".video-container");
-  //   let header = $(this).children(".major");
-  //   let details = $(this).children(".major").children(".details");
-  //   let video = container.children("video").get(0);
-  //   if (video != undefined) {
-  //     container.children("video").get(0).pause();
-  //     container.css({
-  //       "z-index": -1,
-  //     });
-  //   }
-  //   header.css({
-  //     transform: "translateY(0%)",
-  //     transition: "transform 0.5s",
-  //   });
-  //   details.css({
-  //     display: _g1,
-  //   });
-  // }
+  function hideVideo(e) {
+    let container = $(this).children(".video-container");
+    let header = $(this).children(".major");
+    let details = $(this).children(".major").children(".details");
+    let video = container.children("video").get(0);
+    if (video != undefined) {
+      container.children("video").get(0).pause();
+      container.css({
+        "z-index": -1,
+      });
+    }
+    header.css({
+      transform: "translateY(0%)",
+      transition: "transform 0.5s",
+    });
+    details.css({
+      display: _g1,
+    });
+  }
 
   // Header.
   if ($banner.length > 0 && $header.hasClass("alt")) {
