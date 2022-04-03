@@ -202,22 +202,6 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/GenericApiResponse'
 
-    /api/user/emails:
-        get:
-            summary: List emails
-            description: Get a list of all emails sent by Edge Impulse to the current user. This function is only available through a JWT token, and is not available for all users.
-            tags:
-                - User
-                - RequiresSudo
-            operationId: "listEmailsCurrentUser"
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ListEmailResponse'
-
     /api/user/photo:
         post:
             summary: Upload photo
@@ -432,24 +416,6 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/GenericApiResponse'
 
-    /api/users/{userId}/emails:
-        get:
-            summary: List emails
-            description: Get a list of all emails sent by Edge Impulse to a user. This function is only available through a JWT token, and is not available for all users.
-            tags:
-                - User
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/UserIdParameter'
-            operationId: "listEmailsUser"
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ListEmailResponse'
-
     /api/users/{userId}/photo:
         post:
             summary: Upload photo
@@ -622,98 +588,6 @@ paths:
     # ===============
     # THIRD PARTY AUTH
     # ===============
-    /api/third-party-auth:
-        get:
-            summary: Get all third party auth
-            description: Get information about all third party authentication partners
-            operationId: getAllThirdPartyAuth
-            tags:
-                - ThirdPartyAuth
-                - RequiresSudo
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetAllThirdPartyAuthResponse'
-        post:
-            summary: Create third party auth
-            description: Create a new third party authentication partner
-            operationId: createThirdPartyAuth
-            tags:
-                - ThirdPartyAuth
-                - RequiresSudo
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateThirdPartyAuthRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateThirdPartyAuthResponse'
-
-
-    /api/third-party-auth/{authId}:
-        get:
-            summary: Get third party auth
-            description: Get information about a third party authentication partner
-            operationId: getThirdPartyAuth
-            tags:
-                - ThirdPartyAuth
-            parameters:
-                - $ref: '#/components/parameters/AuthIdParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetThirdPartyAuthResponse'
-        post:
-            summary: Update third party auth
-            description: Update a third party authentication partner
-            operationId: updateThirdPartyAuth
-            tags:
-                - ThirdPartyAuth
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/AuthIdParameter'
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UpdateThirdPartyAuthRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-        delete:
-            summary: Delete third party auth
-            description: Delete a third party authentication partner
-            operationId: deleteThirdPartyAuth
-            tags:
-                - ThirdPartyAuth
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/AuthIdParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-
     /api/{projectId}/third-party-auth/{authId}/authorize:
         post:
             summary: Give access to project
@@ -880,100 +754,6 @@ paths:
     # ===========
     # Whitelabels
     # ===========
-    /api/whitelabels:
-        get:
-            summary: List the registered white labels
-            description: Retrieve the list of registered white labels.
-            tags:
-                - Whitelabels
-                - RequiresSudo
-            operationId: "getAllWhitelabels"
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetAllWhitelabelsResponse'
-        post:
-            summary: Create a new white label
-            description: Create a new white label
-            tags:
-                - Whitelabels
-                - RequiresSudo
-            operationId: "createWhitelabel"
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateWhitelabelRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateWhitelabelResponse'
-
-    /api/whitelabel/{whitelabelId}:
-        get:
-            summary: White label information
-            description: Retrieve all the information about this white label.
-            tags:
-                - Whitelabels
-                - RequiresSudo
-            operationId: "getWhitelabel"
-            parameters:
-                - $ref: '#/components/parameters/WhitelabelIdParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetWhitelabelResponse'
-        delete:
-            summary: Deletes a white label
-            description: Deletes the white label with the given id.
-            tags:
-                - Whitelabels
-                - RequiresSudo
-            operationId: "deleteWhitelabel"
-            parameters:
-                - $ref: '#/components/parameters/WhitelabelIdParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-
-    /api/whitelabel/{whitelabelId}/deploymentTargets:
-        post:
-            summary: Update deployment targets
-            description: Update some or all of the deployment targets enabled for this white label.
-            operationId: updateDeploymentTargets
-            tags:
-                - Whitelabels
-                - RequiresSudo
-            parameters:
-                    - $ref: '#/components/parameters/WhitelabelIdParameter'
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UpdateWhitelabelDeploymentTargetsRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-
     /api/whitelabel/{whitelabelId}/impulse/blocks:
         get:
             summary: Get impulse blocks
@@ -1358,54 +1138,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/ProjectDataIntervalResponse'
-
-    /api/{projectId}/compute-time-limit:
-        post:
-            summary: Set compute time limit
-            description: Change the job compute time limit for the project. This function is only available through a JWT token, and is not available to all users.
-            tags:
-                - Projects
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/ProjectIdParameter'
-            operationId: "setProjectComputeTimeLimit"
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/SetProjectComputeTimeRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-
-    /api/{projectId}/dsp-file-size-limit:
-        post:
-            summary: Set DSP file size limit
-            description: Change the DSP file size limit for the project. This function is only available through a JWT token, and is not available to all users.
-            tags:
-                - Projects
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/ProjectIdParameter'
-            operationId: "setProjectFileSizeLimit"
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/SetProjectDspFileSizeRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
 
     /api/{projectId}/versions:
         get:
@@ -3061,30 +2793,6 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/KerasModelMetadata'
 
-    /api/{projectId}/training/keras/{learnId}/files:
-        post:
-            summary: Upload Keras files
-            description: Replace Keras block files with the contents of a zip. This is an internal API.
-            operationId: uploadKerasFiles
-            tags:
-                - Learn
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/ProjectIdParameter'
-                - $ref: '#/components/parameters/LearnIdParameter'
-            requestBody:
-                content:
-                    multipart/form-data:
-                        schema:
-                            $ref: '#/components/schemas/UploadKerasFilesRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
-
     /api/{projectId}/training/keras/{learnId}/ipynb:
         get:
             summary: iPython Notebook
@@ -4207,28 +3915,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/ListOrganizationsResponse'
-
-    /api/organizations/create:
-        post:
-            summary: Create new organization
-            description: Create a new organization. This is an internal API.
-            tags:
-                - Organizations
-                - RequiresSudo
-            operationId: "createOrganization"
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateOrganizationRequest'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateOrganizationResponse'
 
     /api/organizations/{organizationId}:
         get:
@@ -6094,62 +5780,6 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/GenericApiResponse'
 
-    # ===============
-    # ADMIN
-    # ===============
-    /api/admin/find-user:
-        get:
-            summary: Find a user
-            description: Admin-only API to find a user by username or email address.
-            tags:
-                - Admin
-                - RequiresSudo
-            operationId: "adminFindUser"
-            parameters:
-                - $ref: '#/components/parameters/FindUserQueryParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/FindUserResponse'
-
-    /api/admin/users/{userId}:
-        get:
-            summary: Get user
-            description: Admin-only API to get information about a user.
-            tags:
-                - Admin
-                - RequiresSudo
-            operationId: "adminGetUser"
-            parameters:
-                - $ref: '#/components/parameters/UserIdParameter'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetUserResponse'
-
-    /api/admin/projects/{adminProjectId}/add:
-        post:
-            summary: Add current user to a project
-            description: Admin-only API to add the current user to a project.
-            tags:
-                - Admin
-                - RequiresSudo
-            parameters:
-                - $ref: '#/components/parameters/AdminProjectIdParameter'
-            operationId: "adminAddUserToProject"
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GenericApiResponse'
     # ===============
     # HEALTH
     # ===============
