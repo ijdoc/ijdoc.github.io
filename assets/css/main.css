@@ -2973,8 +2973,8 @@ button:disabled,
   opacity: 0;
 }
 
-.tiles article:nth-child(4n - 1),
-.tiles article:nth-child(4n - 2) {
+.tiles article:nth-child(4n),
+.tiles article:nth-child(4n - 3) {
   width: 60%;
 }
 
